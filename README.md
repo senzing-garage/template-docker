@@ -12,11 +12,11 @@ This repository shows best practices for creating a `docker-*` repository.
 ### Dockerfile
 
 1. Use best practices:
-    1. [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
-    1. Project Atomic [Container Best practices](http://docs.projectatomic.io/container-best-practices)
+    1. Docker's [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
+    1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices)
 1. Use a "linter" when applicable.
-    1. [FROM: latest](https://www.fromlatest.io)
-    1. [github.com/projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint)
+    1. Online linter: [FROM: latest](https://www.fromlatest.io)
+    1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint)
 
         ```console
         docker run -it \
@@ -27,7 +27,9 @@ This repository shows best practices for creating a `docker-*` repository.
             dockerfile_lint -f Dockerfile
         ```
 
-    1. **Note:** Linters may erroneously report "ARG before FROM".
+    1. **Note:** Linters may erroneously report "ARG before FROM" which is supported as of
+        Enterprise Edition [17.06.01](https://docs.docker.com/engine/release-notes/#17061-ee-1) and
+        Community Edition [17.05.0](https://docs.docker.com/engine/release-notes/#17050-ce).
 
 ### Makefile
 
