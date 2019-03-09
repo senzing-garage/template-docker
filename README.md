@@ -48,6 +48,6 @@ This repository shows best practices for creating a `docker-*` repository.
 1. Modifications:
     1. Change following value to appropriate Git repository name.
 
-        ```make
+        ```console
         export GIT_REPOSITORY=docker-template
         ```
