@@ -2,6 +2,35 @@
 
 This repository shows best practices for creating a `docker-*` repository.
 
+## Demo
+
+### Build docker image
+
+1. Using `make`
+
+    ```console
+    make docker-build
+    ```
+
+1. Using Docker
+
+    ```console
+    docker build --tag senzing/template .
+    ```
+
+### Run docker image
+
+1. Using Docker
+
+    ```console
+    docker run -it \
+      --rm \
+      --name my-senzing-template \
+      senzing/template
+    ```
+
+    This will run `/bin/ash` an [Almquist shell](https://en.wikipedia.org/wiki/Almquist_shell).
+
 ## Best practices
 
 ### README.md
