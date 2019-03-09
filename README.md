@@ -34,7 +34,7 @@ This repository shows best practices for creating a `docker-*` repository.
 ### Makefile
 
 1. Modifications:
-    1. Change value to appropriate Docker tag.
+    1. Change following value to appropriate Docker tag.
 
         ```make
         DOCKER_IMAGE_NAME := senzing/template
