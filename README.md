@@ -14,9 +14,9 @@ This repository shows best practices for creating a `docker-*` repository.
 1. Use best practices:
     1. Docker's [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
     1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices)
-1. Use a "linter" when applicable.
+1. Use "lint" when applicable.
     1. Online linter: [FROM: latest](https://www.fromlatest.io)
-    1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint)
+    1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) using Docker
 
         ```console
         docker run -it \
