@@ -42,3 +42,12 @@ This repository shows best practices for creating a `docker-*` repository.
 
 1. Use `make docker-build-base` occasionally to populate the docker image cache with layers that change infrequently.
 1. Once a "base" has been created, use `make docker-build` to build during development and make final builds.
+
+### CONTRIBUTING.md
+
+1. Modifications:
+    1. Change following value to appropriate Git repository name.
+
+        ```make
+        export GIT_REPOSITORY=docker-template
+        ```
