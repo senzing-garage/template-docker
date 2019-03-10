@@ -8,4 +8,14 @@ LABEL Name="senzing/template" \
 
 # Alpine package repository: https://pkgs.alpinelinux.org/packages
 
+RUN apk --update add \
+    tree \
+ && rm -rf /var/cache/apk/*
+
+# Copy files from repository.
+
+COPY ./rootfs /
+
+# Runtime execution.
+
 CMD ["/bin/ash"]
