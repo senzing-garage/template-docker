@@ -6,13 +6,13 @@ This repository shows best practices for creating a `docker-*` repository.
 
 ### Build docker image
 
-1. Using `make`
+1. Using `make`:
 
     ```console
     make docker-build
     ```
 
-1. Using Docker
+1. Using Docker:
 
     ```console
     docker build --tag senzing/template .
@@ -20,7 +20,7 @@ This repository shows best practices for creating a `docker-*` repository.
 
 ### Run docker image
 
-1. Using Docker
+1. Using Docker:
 
     ```console
     docker run -it \
@@ -29,7 +29,7 @@ This repository shows best practices for creating a `docker-*` repository.
       senzing/template
     ```
 
-    This will run `/bin/ash` an [Almquist shell](https://en.wikipedia.org/wiki/Almquist_shell).
+    This will run `/bin/ash`, an [Almquist shell](https://en.wikipedia.org/wiki/Almquist_shell).
 
 ## Best practices
 
@@ -42,7 +42,7 @@ This repository shows best practices for creating a `docker-*` repository.
 
 1. Use best practices:
     1. Docker's [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
-    1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices)
+    1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices).
 1. Use "lint" when applicable.
     1. Online linter: [FROM: latest](https://www.fromlatest.io)
     1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) using Docker
