@@ -15,7 +15,7 @@ This repository shows best practices for creating a `docker-*` repository.
 1. Using Docker:
 
     ```console
-    docker build --tag senzing/template .
+    sudo docker build --tag senzing/template .
     ```
 
 ### Run docker image
@@ -23,7 +23,7 @@ This repository shows best practices for creating a `docker-*` repository.
 1. Using Docker:
 
     ```console
-    docker run -it \
+    sudo docker run -it \
       --rm \
       --name my-senzing-template \
       senzing/template
@@ -48,7 +48,7 @@ This repository shows best practices for creating a `docker-*` repository.
     1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) using Docker
 
         ```console
-        docker run -it \
+        sudo docker run -it \
           --rm \
           --privileged \
           --volume $PWD:/root/ \
