@@ -76,14 +76,24 @@ This repository assumes a working knowledge of:
 1. :pencil2: Set environment variables.  Example:
 
     ```console
+    export DATABASE_PROTOCOL=postgresql
+    export DATABASE_USERNAME=postgres
+    export DATABASE_PASSWORD=postgres
+    export DATABASE_HOST=senzing-postgresql
+    export DATABASE_PORT=5432
+    export DATABASE_DATABASE=G2
     export SENZING_DIR=/opt/senzing
     ```
 
 1. Run the docker container.  Example:
 
     ```console
+    export SENZING_DATABASE_URL="${DATABASE_PROTOCOL}://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DATABASE}"
+
     sudo docker run \
+      --env SENZING_DATABASE_URL="${SENZING_DATABASE_URL}" \
       --interactive \
+      --net ${SENZING_NETWORK} \
       --rm \
       --tty \
       --volume ${SENZING_DIR}:/opt/senzing \
