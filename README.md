@@ -20,6 +20,7 @@ See [best practices](docs/best-practices.md).
     1. [Prerequisite software](#prerequisite-software)
     1. [Clone repository](#clone-repository)
     1. [Build docker image for development](#build-docker-image-for-development)
+1. [Errors](#errors)
 
 ## Expectations
 
@@ -149,3 +150,7 @@ The following software programs need to be installed:
     cd ${GIT_REPOSITORY_DIR}
     sudo make docker-build
     ```
+
+## Errors
+
+1. See [docs/errors.md](docs/errors.md).
