@@ -54,12 +54,30 @@ This repository assumes a working knowledge of:
 
 ### Configuration
 
+* **SENZING_DATABASE_URL** -
+  Database URI in the form: `${DATABASE_PROTOCOL}://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DATABASE}`.
+  The default is to use the SQLite database.
 * **SENZING_DEBUG** -
   Enable debug information. Values: 0=no debug; 1=debug. Default: 0.
 * **SENZING_DIR** -
   Location of Senzing libraries. Default: "/opt/senzing".  
 
 ### Run docker container
+
+1. :pencil2: Determine docker network.  Example:
+
+    ```console
+    sudo docker network ls
+
+    # Choose value from NAME column of docker network ls
+    export SENZING_NETWORK=nameofthe_network
+    ```
+
+1. :pencil2: Set environment variables.  Example:
+
+    ```console
+    export SENZING_DIR=/opt/senzing
+    ```
 
 1. Run the docker container.  Example:
 
@@ -68,6 +86,7 @@ This repository assumes a working knowledge of:
       --interactive \
       --rm \
       --tty \
+      --volume ${SENZING_DIR}:/opt/senzing \
       senzing/template
     ```
 
