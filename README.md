@@ -20,6 +20,7 @@ See [best practices](docs/best-practices.md).
     1. [Prerequisite software](#prerequisite-software)
     1. [Clone repository](#clone-repository)
     1. [Build docker image for development](#build-docker-image-for-development)
+1. [Examples](#examples)
 1. [Errors](#errors)
 
 ## Expectations
@@ -150,6 +151,11 @@ The following software programs need to be installed:
     cd ${GIT_REPOSITORY_DIR}
     sudo make docker-build
     ```
+
+## Examples
+
+1. Examples of use:
+    1. [rancher-demo](https://github.com/Senzing/rancher-demo/tree/master/docs/db2-cluster-demo.md)
 
 ## Errors
 
