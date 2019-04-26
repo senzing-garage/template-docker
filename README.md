@@ -90,7 +90,7 @@ This repository assumes a working knowledge of:
 
 ### Build docker image
 
-1. Using `make`:
+1. Using docker command and GitHub.  Example:
 
     ```console
     sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
@@ -110,7 +110,7 @@ This repository assumes a working knowledge of:
 
 ### Run docker container
 
-1. Using Docker:
+1. Run the docker container.  Example:
 
     ```console
     sudo docker run \
