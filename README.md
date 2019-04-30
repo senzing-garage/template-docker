@@ -22,6 +22,7 @@ See [best practices](docs/best-practices.md).
     1. [Build docker image for development](#build-docker-image-for-development)
 1. [Examples](#examples)
 1. [Errors](#errors)
+1. [References](#references)
 
 ## Expectations
 
@@ -62,7 +63,12 @@ This repository assumes a working knowledge of:
 * **SENZING_DEBUG** -
   Enable debug information. Values: 0=no debug; 1=debug. Default: 0.
 * **SENZING_DIR** -
-  Location of Senzing libraries. Default: "/opt/senzing".  
+  Path on the local system where
+  [Senzing_API.tgz](https://s3.amazonaws.com/public-read-access/SenzingComDownloads/Senzing_API.tgz)
+  has been extracted.
+  See [Create SENZING_DIR](#create-senzing_dir).
+  No default.
+  Usually set to "/opt/senzing".
 
 ### Run docker container
 
@@ -162,3 +168,5 @@ The following software programs need to be installed:
 ## Errors
 
 1. See [docs/errors.md](docs/errors.md).
+
+## References
