@@ -138,20 +138,20 @@ The following software programs need to be installed:
 
 ### Build docker image for development
 
-1. Option #1 - Using docker command and GitHub.
+1. Option #1 - Using `docker` command and GitHub.
 
     ```console
     sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
     ```
 
-1. Option #2 - Using docker command and local repository.
+1. Option #2 - Using `docker` command and local repository.
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
     sudo docker build --tag senzing/template .
     ```
 
-1. Option #3 - Using make command.
+1. Option #3 - Using `make` command.
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
