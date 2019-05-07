@@ -1,7 +1,7 @@
 ARG BASE_IMAGE=senzing/senzing-base
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2019-04-12
+ENV REFRESHED_AT=2019-05-01
 
 LABEL Name="senzing/template" \
       Maintainer="support@senzing.com" \
@@ -9,9 +9,7 @@ LABEL Name="senzing/template" \
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
-# XXX
-
-RUN mkdir -p /opt/senzing
+# Install packages via apt.
 
 # Copy files from repository.
 
