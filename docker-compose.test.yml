@@ -1,5 +1,5 @@
 version: '3'
 services:
   sut:
-    build: . 
+    build: .
     command: /app/container-test.sh
