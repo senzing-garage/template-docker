@@ -72,6 +72,10 @@ This repository assumes a working knowledge of:
 
 ### Run docker container
 
+1. **Important:**
+   Before running `senzing/g2command`,
+   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
+
 1. :pencil2: Determine docker network.  Example:
 
     ```console
@@ -159,11 +163,6 @@ The following software programs need to be installed:
     ```
 
 ## Examples
-
-1. Examples of use:
-    1. [docker-compose-stream-loader-kafka-demo](https://github.com/Senzing/docker-compose-stream-loader-kafka-demo)
-    1. [kubernetes-demo](https://github.com/Senzing/kubernetes-demo)
-    1. [rancher-demo](https://github.com/Senzing/rancher-demo/tree/master/docs/db2-cluster-demo.md)
 
 ## Errors
 
