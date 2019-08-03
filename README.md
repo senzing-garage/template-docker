@@ -11,9 +11,9 @@ See [best practices](docs/best-practices.md).
     1. [Space](#space)
     1. [Time](#time)
     1. [Background knowledge](#background-knowledge)
-1. [Demonstrate](#demonstrate)
-    1. [Build docker image](#build-docker-image)
-    1. [Create SENZING_DIR](#create-senzing_dir)
+1. [Demonstrate using Docker](#demonstrate-using-docker)
+    1. [Get docker image](#get-docker-image)
+    1. [Initialize Senzing](#initialize-senzing)
     1. [Configuration](#configuration)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
@@ -40,41 +40,37 @@ This repository assumes a working knowledge of:
 
 1. [Docker](https://github.com/Senzing/knowledge-base/blob/master/WHATIS/docker.md)
 
-## Demonstrate
+## Demonstrate using Docker
 
-### Build docker image
+### Get docker image
 
-1. Using docker command and GitHub.  Example:
+1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/) and can be downloaded.
+   Example:
+
+    ```console
+    sudo docker pull senzing/template
+    ```
+
+1. Option #2. The `senzing/template` image can be built locally.
+   Example:
 
     ```console
     sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
     ```
 
-### Create SENZING_DIR
+### Initialize Senzing
 
-1. If `/opt/senzing` directory is not on local system, visit
-   [HOWTO - Create SENZING_DIR](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/create-senzing-dir.md).
+1. If Senzing has not been initialized, visit
+   [HOWTO - Initialize Senzing](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing.md).
 
 ### Configuration
 
-* **SENZING_DATABASE_URL** -
-  Database URI in the form: `${DATABASE_PROTOCOL}://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DATABASE}`.
-  The default is to use the SQLite database.
-* **SENZING_DEBUG** -
-  Enable debug information. Values: 0=no debug; 1=debug. Default: 0.
-* **SENZING_DIR** -
-  Path on the local system where
-  [Senzing_API.tgz](https://s3.amazonaws.com/public-read-access/SenzingComDownloads/Senzing_API.tgz)
-  has been extracted.
-  See [Create SENZING_DIR](#create-senzing_dir).
-  No default.
-  Usually set to "/opt/senzing".
+Configuration values specified by environment variable or command line parameter.
+
+- **[SENZING_DATABASE_URL](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_database_url)**
+- **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_debug)**
 
 ### Run docker container
-
-1. **Important:**
-   Before running `senzing/g2command`,
-   run [senzing/init-container](https://github.com/Senzing/docker-init-container) to initialize the database.
 
 1. :pencil2: Determine docker network.  Example:
 
@@ -123,6 +119,9 @@ The following software programs need to be installed:
 1. [docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/install-docker.md)
 
 ### Clone repository
+
+For more information on environment variables,
+see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md).
 
 1. Set these environment variable values:
 
