@@ -45,7 +45,7 @@ This repository assumes a working knowledge of:
 
 ### Get docker image
 
-1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/) and can be downloaded.
+1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/r/senzing/template) and can be downloaded.
    Example:
 
     ```console
