@@ -15,6 +15,7 @@ See [best practices](docs/best-practices.md).
     1. [Get docker image](#get-docker-image)
     1. [Initialize Senzing](#initialize-senzing)
     1. [Configuration](#configuration)
+    1. [Volumes](#volumes)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisite software](#prerequisite-software)
@@ -44,7 +45,7 @@ This repository assumes a working knowledge of:
 
 ### Get docker image
 
-1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/) and can be downloaded.
+1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/r/senzing/template) and can be downloaded.
    Example:
 
     ```console
@@ -70,9 +71,40 @@ Configuration values specified by environment variable or command line parameter
 - **[SENZING_DATABASE_URL](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_database_url)**
 - **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_debug)**
 
+### Volumes
+
+The output of `yum install senzingapi` placed files in different directories.
+Create a folder for each output directory.
+
+1. :pencil2: Option #1.
+   To mimic an actual RPM installation,
+   identify directories for RPM output in this manner:
+
+    ```console
+    export SENZING_DATA_VERSION_DIR=/opt/senzing/data/1.0.0
+    export SENZING_G2_DIR=/opt/senzing/g2
+    export SENZING_ETC_DIR=/etc/opt/senzing
+    export SENZING_VAR_DIR=/var/opt/senzing
+    ```
+
+1. :pencil2: Option #2.
+   If Senzing directories were put in alternative directories,
+   set environment variables to reflect where the directories were placed.
+   Example:
+
+    ```console
+    export SENZING_VOLUME=/opt/my-senzing
+
+    export SENZING_DATA_VERSION_DIR=${SENZING_VOLUME}/data/1.0.0
+    export SENZING_G2_DIR=${SENZING_VOLUME}/g2
+    export SENZING_ETC_DIR=${SENZING_VOLUME}/etc
+    export SENZING_VAR_DIR=${SENZING_VOLUME}/var
+    ```
+
 ### Run docker container
 
-1. :pencil2: Determine docker network.  Example:
+1. :pencil2: Determine docker network.
+   Example:
 
     ```console
     sudo docker network ls
@@ -81,7 +113,8 @@ Configuration values specified by environment variable or command line parameter
     export SENZING_NETWORK=nameofthe_network
     ```
 
-1. :pencil2: Set environment variables.  Example:
+1. :pencil2: Set environment variables.
+   Example:
 
     ```console
     export DATABASE_PROTOCOL=postgresql
@@ -90,10 +123,10 @@ Configuration values specified by environment variable or command line parameter
     export DATABASE_HOST=senzing-postgresql
     export DATABASE_PORT=5432
     export DATABASE_DATABASE=G2
-    export SENZING_DIR=/opt/senzing
     ```
 
-1. Run the docker container.  Example:
+1. Run the docker container.
+   Example:
 
     ```console
     export SENZING_DATABASE_URL="${DATABASE_PROTOCOL}://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DATABASE}"
@@ -104,7 +137,10 @@ Configuration values specified by environment variable or command line parameter
       --net ${SENZING_NETWORK} \
       --rm \
       --tty \
-      --volume ${SENZING_DIR}:/opt/senzing \
+      --volume ${SENZING_DATA_VERSION_DIR}:/opt/senzing/data \
+      --volume ${SENZING_G2_DIR}:/opt/senzing/g2 \
+      --volume ${SENZING_ETC_DIR}:/etc/opt/senzing \
+      --volume ${SENZING_VAR_DIR}:/var/opt/senzing \
       senzing/template
     ```
 
