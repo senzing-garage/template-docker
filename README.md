@@ -86,8 +86,8 @@ Create a folder for each output directory.
 
     ```console
     export SENZING_DATA_VERSION_DIR=/opt/senzing/data/1.0.0
-    export SENZING_G2_DIR=/opt/senzing/g2
     export SENZING_ETC_DIR=/etc/opt/senzing
+    export SENZING_G2_DIR=/opt/senzing/g2
     export SENZING_VAR_DIR=/var/opt/senzing
     ```
 
@@ -100,8 +100,8 @@ Create a folder for each output directory.
     export SENZING_VOLUME=/opt/my-senzing
 
     export SENZING_DATA_VERSION_DIR=${SENZING_VOLUME}/data/1.0.0
-    export SENZING_G2_DIR=${SENZING_VOLUME}/g2
     export SENZING_ETC_DIR=${SENZING_VOLUME}/etc
+    export SENZING_G2_DIR=${SENZING_VOLUME}/g2
     export SENZING_VAR_DIR=${SENZING_VOLUME}/var
     ```
 
