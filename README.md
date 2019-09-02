@@ -12,10 +12,12 @@ See [best practices](docs/best-practices.md).
     1. [Time](#time)
     1. [Background knowledge](#background-knowledge)
 1. [Demonstrate using Docker](#demonstrate-using-docker)
-    1. [Get docker image](#get-docker-image)
     1. [Initialize Senzing](#initialize-senzing)
     1. [Configuration](#configuration)
     1. [Volumes](#volumes)
+    1. [Docker network](#docker-network)
+    1. [External database](#external-database)
+    1. [Docker user](#docker-user)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisite software](#prerequisite-software)
@@ -43,22 +45,6 @@ This repository assumes a working knowledge of:
 
 ## Demonstrate using Docker
 
-### Get docker image
-
-1. Option #1. The `senzing/template` docker image is on [DockerHub](https://hub.docker.com/r/senzing/template) and can be downloaded.
-   Example:
-
-    ```console
-    sudo docker pull senzing/template
-    ```
-
-1. Option #2. The `senzing/template` image can be built locally.
-   Example:
-
-    ```console
-    sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
-    ```
-
 ### Initialize Senzing
 
 1. If Senzing has not been initialized, visit
@@ -73,6 +59,8 @@ Configuration values specified by environment variable or command line parameter
 - **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_debug)**
 - **[SENZING_ETC_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_etc_dir)**
 - **[SENZING_G2_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_g2_dir)**
+- **[SENZING_NETWORK](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_network)**
+- **[SENZING_RUNAS_USER](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_runas_user)**
 - **[SENZING_VAR_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_var_dir)**
 
 ### Volumes
@@ -85,7 +73,7 @@ Create a folder for each output directory.
    identify directories for RPM output in this manner:
 
     ```console
-    export SENZING_DATA_VERSION_DIR=/opt/senzing/data/1.0.0
+    export SENZING_DATA_VERSION_DIR=/opt/senzing/data/1.0
     export SENZING_ETC_DIR=/etc/opt/senzing
     export SENZING_G2_DIR=/opt/senzing/g2
     export SENZING_VAR_DIR=/var/opt/senzing
@@ -99,25 +87,43 @@ Create a folder for each output directory.
     ```console
     export SENZING_VOLUME=/opt/my-senzing
 
-    export SENZING_DATA_VERSION_DIR=${SENZING_VOLUME}/data/1.0.0
+    export SENZING_DATA_VERSION_DIR=${SENZING_VOLUME}/data/1.0
     export SENZING_ETC_DIR=${SENZING_VOLUME}/etc
     export SENZING_G2_DIR=${SENZING_VOLUME}/g2
     export SENZING_VAR_DIR=${SENZING_VOLUME}/var
     ```
 
-### Run docker container
+### Docker network
 
-1. :pencil2: Determine docker network.
+:thinking: **Optional:**  Use if docker container is part of a docker network.
+
+1. List docker networks.
    Example:
 
     ```console
     sudo docker network ls
-
-    # Choose value from NAME column of docker network ls
-    export SENZING_NETWORK=nameofthe_network
     ```
 
-1. :pencil2: Set environment variables.
+1. :pencil2: Specify docker network.
+   Choose value from NAME column of `docker network ls`.
+   Example:
+
+    ```console
+    export SENZING_NETWORK=*nameofthe_network*
+    ```
+
+1. Construct parameter for `docker run`.
+   Example:
+
+    ```console
+    export SENZING_NETWORK_PARAMETER="--net ${SENZING_NETWORK}"
+    ```
+
+### External database
+
+:thinking: **Optional:**  Use if storing data in an external database.
+
+1. :pencil2: Specify database.
    Example:
 
     ```console
@@ -129,16 +135,51 @@ Create a folder for each output directory.
     export DATABASE_DATABASE=G2
     ```
 
-1. Run docker container.
+1. Construct Database URL.
    Example:
 
     ```console
     export SENZING_DATABASE_URL="${DATABASE_PROTOCOL}://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@${DATABASE_HOST}:${DATABASE_PORT}/${DATABASE_DATABASE}"
+    ```
 
+1. Construct parameter for `docker run`.
+   Example:
+
+    ```console
+    export SENZING_DATABASE_URL_PARAMETER="--env SENZING_DATABASE_URL=${SENZING_DATABASE_URL}
+    ```
+
+### Docker user
+
+:thinking: **Optional:**  The docker container runs as "USER 1001".
+Use if a different userid is required.
+
+1. :pencil2: Identify user.
+   User "0" is root.
+   Example:
+
+    ```console
+    export SENZING_RUNAS_USER="0"
+    ```
+
+1. Construct parameter for `docker run`.
+   Example:
+
+    ```console
+    export SENZING_RUNAS_USER_PARAMETER="--user ${SENZING_RUNAS_USER}"
+    ```
+
+### Run docker container
+
+1. Run docker container.
+   Example:
+
+    ```console
     sudo docker run \
-      --env SENZING_DATABASE_URL="${SENZING_DATABASE_URL}" \
+      ${SENZING_RUNAS_USER_PARAMETER} \
+      ${SENZING_DATABASE_URL_PARAMETER} \
+      ${SENZING_NETWORK_PARAMETER} \
       --interactive \
-      --net ${SENZING_NETWORK} \
       --rm \
       --tty \
       --volume ${SENZING_DATA_VERSION_DIR}:/opt/senzing/data \
@@ -168,16 +209,11 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
     ```console
     export GIT_ACCOUNT=senzing
     export GIT_REPOSITORY=docker-template
-    ```
-
-1. Follow steps in [clone-repository](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/clone-repository.md) to install the Git repository.
-
-1. After the repository has been cloned, be sure the following are set:
-
-    ```console
     export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
     export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
     ```
+
+1. Follow steps in [clone-repository](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/clone-repository.md) to install the Git repository.
 
 ### Build docker image for development
 
