@@ -65,10 +65,12 @@ Configuration values specified by environment variable or command line parameter
 
 ### Volumes
 
-The output of `yum install senzingapi` placed files in different directories.
-Create a folder for each output directory.
+:thinking: The output of
+[HOWTO - Initialize Senzing](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing.md)
+placed files in different directories.
+Identify each output directory.
 
-1. :pencil2: Option #1.
+1. :pencil2: **Option #1**
    To mimic an actual RPM installation,
    identify directories for RPM output in this manner:
 
@@ -79,7 +81,7 @@ Create a folder for each output directory.
     export SENZING_VAR_DIR=/var/opt/senzing
     ```
 
-1. :pencil2: Option #2.
+1. :pencil2: **Option #2**
    If Senzing directories were put in alternative directories,
    set environment variables to reflect where the directories were placed.
    Example:
