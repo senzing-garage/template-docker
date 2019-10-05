@@ -5,6 +5,9 @@
 This repository shows best practices for creating a `docker-*` repository.
 See [best practices](docs/best-practices.md).
 
+1. [DockerHub](https://hub.docker.com/r/senzing/xxxxxxxx)
+1. [Helm Chart](https://github.com/Senzing/charts/tree/master/charts/xxxxxxxx)
+
 ### Contents
 
 1. [Expectations](#expectations)
