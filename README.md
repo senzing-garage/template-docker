@@ -53,7 +53,7 @@ This repository assumes a working knowledge of:
 ### Initialize Senzing
 
 1. If Senzing has not been initialized, visit
-   [HOWTO - Initialize Senzing](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing.md).
+   "[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)".
 
 ### Configuration
 
@@ -70,12 +70,12 @@ Configuration values specified by environment variable or command line parameter
 
 ### Volumes
 
-:thinking: The output of
-[HOWTO - Initialize Senzing](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing.md)
-placed files in different directories.
+:thinking:
+"[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)"
+places files in different directories.
 Identify each output directory.
 
-1. :pencil2: **Option #1**
+1. :pencil2: **Example #1:**
    To mimic an actual RPM installation,
    identify directories for RPM output in this manner:
 
@@ -86,7 +86,7 @@ Identify each output directory.
     export SENZING_VAR_DIR=/var/opt/senzing
     ```
 
-1. :pencil2: **Option #2**
+1. :pencil2: **Example #2:**
    If Senzing directories were put in alternative directories,
    set environment variables to reflect where the directories were placed.
    Example:
@@ -166,7 +166,7 @@ Identify each output directory.
 ### Docker user
 
 :thinking: **Optional:**  The docker container runs as "USER 1001".
-Use if a different userid is required.
+Use if a different userid (UID) is required.
 
 1. :pencil2: Identify user.
    User "0" is root.
@@ -231,20 +231,20 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 
 ### Build docker image for development
 
-1. Option #1 - Using `docker` command and GitHub.
+1. **Option #1:** Using `docker` command and GitHub.
 
     ```console
     sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
     ```
 
-1. Option #2 - Using `docker` command and local repository.
+1. **Option #2:** Using `docker` command and local repository.
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
     sudo docker build --tag senzing/template .
     ```
 
-1. Option #3 - Using `make` command.
+1. **Option #3:** Using `make` command.
 
     ```console
     cd ${GIT_REPOSITORY_DIR}
