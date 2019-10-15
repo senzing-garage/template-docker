@@ -73,9 +73,9 @@ Configuration values specified by environment variable or command line parameter
 :thinking:
 "[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)"
 places files in different directories.
-Identify each output directory.
+The following examples show how to identify each output directory.
 
-1. :pencil2: **Example #1:**
+1. **Example #1:**
    To mimic an actual RPM installation,
    identify directories for RPM output in this manner:
 
