@@ -187,10 +187,9 @@ Use if a different userid (UID) is required.
 ### MSSQL support
 
 :thinking: **Optional:**  This is only needed if using a Microsoft MSSQL database.
-Use if a different userid is required.
+If using a different database, these steps may be skipped.
 
-1. :pencil2: Identify user.
-   User "0" is root.
+1. :pencil2: Identify directory with MSSQL drivers.
    Example:
 
     ```console
