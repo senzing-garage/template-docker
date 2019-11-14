@@ -23,6 +23,7 @@ See [best practices](docs/best-practices.md).
     1. [Docker network](#docker-network)
     1. [External database](#external-database)
     1. [Docker user](#docker-user)
+    1. [MSSQL support](#mssql-support)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisite software](#prerequisite-software)
