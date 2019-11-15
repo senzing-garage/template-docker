@@ -23,7 +23,7 @@ See [best practices](docs/best-practices.md).
     1. [Docker network](#docker-network)
     1. [External database](#external-database)
     1. [Docker user](#docker-user)
-    1. [MSSQL support](#mssql-support)
+    1. [Database support](#database-support)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisite software](#prerequisite-software)
@@ -185,26 +185,17 @@ Use if a different userid (UID) is required.
     export SENZING_RUNAS_USER_PARAMETER="--user ${SENZING_RUNAS_USER}"
     ```
 
-### MSSQL support
+### Database support
 
-:thinking: **Optional:**  This is only needed if using a Microsoft MSSQL database.
-If using a different database, these steps may be skipped.
+:thinking: **Optional:**  Some database need additional support.
+For other databases, these steps may be skipped.
 
-1. :pencil2: Identify directory for MSSQL drivers.
-   Example:
-
-    ```console
-    export SENZING_OPT_MICROSOFT_DIR=${SENZING_VOLUME}/opt-microsoft
-    ```
-
-1. If not done previously,
-   [install MS SQL drivers](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md#ms-sql).
-1. Construct parameter for `docker run`.
-   Example:
-
-    ```console
-    export SENZING_OPT_MICROSOFT_DIR_PARAMETER="--volume ${SENZING_OPT_MICROSOFT_DIR}:/opt/microsoft"
-    ```
+1. **Db2:** Instructions for
+   [Support Db2](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-db2.md)
+   which sets `SENZING_OPT_IBM_DIR_PARAMETER`.
+1. **MS SQL:** Instructions for
+   [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-mssql.md)
+   which sets `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
 ### Run docker container
 
@@ -223,6 +214,7 @@ If using a different database, these steps may be skipped.
       ${SENZING_RUNAS_USER_PARAMETER} \
       ${SENZING_DATABASE_URL_PARAMETER} \
       ${SENZING_NETWORK_PARAMETER} \
+      ${SENZING_OPT_IBM_DIR_PARAMETER} \
       ${SENZING_OPT_MICROSOFT_DIR_PARAMETER} \
       senzing/template
     ```
