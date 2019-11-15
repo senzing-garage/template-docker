@@ -190,10 +190,10 @@ Use if a different userid (UID) is required.
 :thinking: **Optional:**  Some database need additional support.
 For other databases, these steps may be skipped.
 
-1. **Db2:** Instructions for
+1. **Db2:** See instructions for
    [Support Db2](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-db2.md)
    which sets `SENZING_OPT_IBM_DIR_PARAMETER`.
-1. **MS SQL:** Instructions for
+1. **MS SQL:** See instructions for
    [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-mssql.md)
    which sets `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
