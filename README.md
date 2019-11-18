@@ -33,6 +33,14 @@ See [best practices](docs/best-practices.md).
 1. [Errors](#errors)
 1. [References](#references)
 
+### Legend
+
+1. :thinking: - A "thinker" icon means that a little extra thinking may be required.
+   Perhaps you'll need to make some choices.
+   Perhaps it's an optional step.
+1. :pencil2: - A "pencil" icon means that the instructions may need modification before performing.
+1. :warning: - A "warning" icon means that something tricky is happening, so pay attention.
+
 ## Expectations
 
 ### Space
@@ -164,6 +172,7 @@ Use if a different userid (UID) is required.
 ### External database
 
 :thinking: **Optional:**  Use if storing data in an external database.
+If not specified, the internal SQLite database will be used.
 
 1. :pencil2: Specify database.
    Example:
@@ -188,7 +197,7 @@ Use if a different userid (UID) is required.
    Example:
 
     ```console
-    export SENZING_DATABASE_URL_PARAMETER="--env SENZING_DATABASE_URL=${SENZING_DATABASE_URL}
+    export SENZING_DATABASE_URL_PARAMETER="--env SENZING_DATABASE_URL=${SENZING_DATABASE_URL}"
     ```
 
 ### Database support
