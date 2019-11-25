@@ -265,7 +265,9 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 1. **Option #1:** Using `docker` command and GitHub.
 
     ```console
-    sudo docker build --tag senzing/template https://github.com/senzing/docker-template.git
+    sudo docker build \
+      --tag senzing/template \
+      https://github.com/senzing/docker-template.git
     ```
 
 1. **Option #2:** Using `docker` command and local repository.
