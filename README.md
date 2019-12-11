@@ -226,11 +226,11 @@ For other databases, these steps may be skipped.
       --volume ${SENZING_ETC_DIR}:/etc/opt/senzing \
       --volume ${SENZING_G2_DIR}:/opt/senzing/g2 \
       --volume ${SENZING_VAR_DIR}:/var/opt/senzing \
-      ${SENZING_RUNAS_USER_PARAMETER} \
       ${SENZING_DATABASE_URL_PARAMETER} \
       ${SENZING_NETWORK_PARAMETER} \
       ${SENZING_OPT_IBM_DIR_PARAMETER} \
       ${SENZING_OPT_MICROSOFT_DIR_PARAMETER} \
+      ${SENZING_RUNAS_USER_PARAMETER} \
       senzing/template
     ```
 
