@@ -1,4 +1,4 @@
-# docker-template
+# template-docker
 
 ## Overview
 
@@ -253,7 +253,7 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 
     ```console
     export GIT_ACCOUNT=senzing
-    export GIT_REPOSITORY=docker-template
+    export GIT_REPOSITORY=template-docker
     export GIT_ACCOUNT_DIR=~/${GIT_ACCOUNT}.git
     export GIT_REPOSITORY_DIR="${GIT_ACCOUNT_DIR}/${GIT_REPOSITORY}"
     ```
@@ -267,7 +267,7 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
     ```console
     sudo docker build \
       --tag senzing/template \
-      https://github.com/senzing/docker-template.git
+      https://github.com/senzing/template-docker.git
     ```
 
 1. **Option #2:** Using `docker` command and local repository.

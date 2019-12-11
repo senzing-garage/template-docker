@@ -45,5 +45,5 @@
     1. Change following value to appropriate Git repository name.
 
         ```markdown
-        export GIT_REPOSITORY=docker-template
+        export GIT_REPOSITORY=template-docker
         ```
