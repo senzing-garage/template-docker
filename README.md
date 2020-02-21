@@ -80,13 +80,15 @@ Configuration values specified by environment variable or command line parameter
 ### Volumes
 
 1. :pencil2: Specify the directory containing the Senzing installation.
+   The directory may have been just created in the "[Initialize Senzing](#initialize-senzing)" section
+   or may exist from prior work.
    Example:
 
     ```console
     export SENZING_VOLUME=/opt/my-senzing
     ```
 
-    1. A simple test to see if `SENZING_VOLUME` is correct.
+    1. Here's a simple test to see if `SENZING_VOLUME` is correct.
        The following commands should return file contents.
        Example:
 
