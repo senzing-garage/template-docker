@@ -80,8 +80,8 @@ Configuration values specified by environment variable or command line parameter
 ### Volumes
 
 1. :pencil2: Specify the directory containing the Senzing installation.
-   The directory may have been just created in the "[Initialize Senzing](#initialize-senzing)" section
-   or may exist from prior work.
+   Use the same `SENZING_VOLUME` value used when performing
+   "[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)".
    Example:
 
     ```console
