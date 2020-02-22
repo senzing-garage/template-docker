@@ -114,18 +114,6 @@ Configuration values specified by environment variable or command line parameter
     export SENZING_VAR_DIR=${SENZING_VOLUME}/var
     ```
 
-1. :thinking:
-   Alternatively, if using the Senzing system installation on the host system is desired,
-   see how to [use docker with system install](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/use-docker-with-system-install.md).
-
-1. :thinking:
-   If internal database is used (e.g. SQLite), the `${SENZING_VAR_DIR}` directory permissions may need to be changed.
-   Example:
-
-    ```console
-    sudo chown $(id -u):$(id -g) -R ${SENZING_VAR_DIR}
-    ```
-
 ### Docker network
 
 :thinking: **Optional:**  Use if docker container is part of a docker network.
