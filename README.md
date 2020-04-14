@@ -207,9 +207,9 @@ For other databases, these steps may be skipped.
 ### Run docker container
 
 Although the `docker run` command looks complex,
-it accounts for all of the variations described above.
+it accounts for all of the optional variations described above.
 The unset environment variables have no effect on the
-`docker run` command and may be removed or left in.
+`docker run` command and may be removed or remain.
 
 1. Run docker container.
    Example:
