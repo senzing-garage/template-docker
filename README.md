@@ -138,20 +138,18 @@ This repository assumes a working knowledge of:
 :thinking: **Optional:**  The docker container runs as "USER 1001".
 Use if a different userid (UID) is required.
 
-1. :pencil2: Manually identify user.
-   User "0" is root.
-   Example:
+1. :pencil2: Identify user.
+    1. **Example #1:** Use specific UID. User "0" is `root`.
 
-    ```console
-    export SENZING_RUNAS_USER="0"
-    ```
+        ```console
+        export SENZING_RUNAS_USER="0"
+        ```
 
-   Another option, use current user.
-   Example:
+    1. **Example #2:** Use current user.
 
-    ```console
-    export SENZING_RUNAS_USER=$(id -u)
-    ```
+        ```console
+        export SENZING_RUNAS_USER=$(id -u)
+        ```
 
 1. Construct parameter for `docker run`.
    Example:
@@ -204,6 +202,11 @@ For other databases, these steps may be skipped.
    instructions to set `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
 ### Run docker container
+
+Although the `docker run` command looks complex,
+it accounts for all of the variation described above.
+The unset environment variables have no effect on the
+`docker run` command and may be removed.
 
 1. Run docker container.
    Example:
