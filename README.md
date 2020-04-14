@@ -73,6 +73,9 @@ This repository assumes a working knowledge of:
 
 ### Docker volumes
 
+Senzing Docker images follow the [Linux File Hierarchy Standard](https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf).
+Inside the docker container, Senzing artifacts will be located in `/opt/senzing`, `/etc/opt/senzing`, and `/var/opt/senzing`.
+
 1. :pencil2: Specify the directory containing the Senzing installation.
    Use the same `SENZING_VOLUME` value used in the prior steps.
    Example:
