@@ -208,7 +208,7 @@ For other databases, these steps may be skipped.
 
 Although the `docker run` command looks complex,
 it accounts for all of the optional variations described above.
-The unset environment variables have no effect on the
+Unset environment variables have no effect on the
 `docker run` command and may be removed or remain.
 
 1. Run docker container.
