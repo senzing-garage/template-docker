@@ -17,8 +17,8 @@ See [best practices](docs/best-practices.md).
     1. [Time](#time)
     1. [Background knowledge](#background-knowledge)
 1. [Demonstrate using Docker](#demonstrate-using-docker)
-    1. [Initialize Senzing](#initialize-senzing)
-    1. [Configuration](#configuration)
+    1. [Install Senzing](#install-senzing)
+    1. [Configure Senzing](#configure-senzing)
     1. [Volumes](#volumes)
     1. [Docker network](#docker-network)
     1. [Docker user](#docker-user)
@@ -28,8 +28,10 @@ See [best practices](docs/best-practices.md).
 1. [Develop](#develop)
     1. [Prerequisite software](#prerequisite-software)
     1. [Clone repository](#clone-repository)
-    1. [Build docker image for development](#build-docker-image-for-development)
+    1. [Build docker image](#build-docker-image)
 1. [Examples](#examples)
+1. [Advanced](#advanced)
+    1. [Configuration](#configuration)
 1. [Errors](#errors)
 1. [References](#references)
 
@@ -59,29 +61,20 @@ This repository assumes a working knowledge of:
 
 ## Demonstrate using Docker
 
-### Initialize Senzing
+### Install Senzing
 
-1. If Senzing has not been initialized, visit
-   "[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)".
+1. If Senzing has not been installed, visit
+   "[How to install Senzing using Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/install-senzing-using-docker.md)".
 
-### Configuration
+### Configure Senzing
 
-Configuration values specified by environment variable or command line parameter.
-
-- **[SENZING_DATA_VERSION_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_data_version_dir)**
-- **[SENZING_DATABASE_URL](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_database_url)**
-- **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_debug)**
-- **[SENZING_ETC_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_etc_dir)**
-- **[SENZING_G2_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_g2_dir)**
-- **[SENZING_NETWORK](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_network)**
-- **[SENZING_RUNAS_USER](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_runas_user)**
-- **[SENZING_VAR_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_var_dir)**
+1. If Senzing has not been configured, visit
+   "[How to configure Senzing using Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/configure-senzing-using-docker.md)".
 
 ### Volumes
 
 1. :pencil2: Specify the directory containing the Senzing installation.
-   Use the same `SENZING_VOLUME` value used when performing
-   "[How to initialize Senzing with Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/initialize-senzing-with-docker.md)".
+   Use the same `SENZING_VOLUME` value used in the prior steps.
    Example:
 
     ```console
@@ -200,7 +193,7 @@ If not specified, the internal SQLite database will be used.
 
 ### Database support
 
-:thinking: **Optional:**  Some database need additional support.
+:thinking: **Optional:**  Some databases need additional support.
 For other databases, these steps may be skipped.
 
 1. **Db2:** See
@@ -234,6 +227,8 @@ For other databases, these steps may be skipped.
 
 ## Develop
 
+The following instructions are used when modifying and building the Docker image.
+
 ### Prerequisite software
 
 The following software programs need to be installed:
@@ -258,7 +253,7 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 
 1. Follow steps in [clone-repository](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/clone-repository.md) to install the Git repository.
 
-### Build docker image for development
+### Build docker image
 
 1. **Option #1:** Using `docker` command and GitHub.
 
@@ -285,6 +280,21 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
     Note: `sudo make docker-build-development-cache` can be used to create cached docker layers.
 
 ## Examples
+
+## Advanced
+
+### Configuration
+
+Configuration values specified by environment variable or command line parameter.
+
+- **[SENZING_DATA_VERSION_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_data_version_dir)**
+- **[SENZING_DATABASE_URL](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_database_url)**
+- **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_debug)**
+- **[SENZING_ETC_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_etc_dir)**
+- **[SENZING_G2_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_g2_dir)**
+- **[SENZING_NETWORK](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_network)**
+- **[SENZING_RUNAS_USER](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_runas_user)**
+- **[SENZING_VAR_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_var_dir)**
 
 ## Errors
 
