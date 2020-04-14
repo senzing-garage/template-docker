@@ -81,15 +81,6 @@ This repository assumes a working knowledge of:
     export SENZING_VOLUME=/opt/my-senzing
     ```
 
-    1. Here's a simple test to see if `SENZING_VOLUME` is correct.
-       The following commands should return file contents.
-       Example:
-
-        ```console
-        cat ${SENZING_VOLUME}/g2/g2BuildVersion.json
-        cat ${SENZING_VOLUME}/data/1.0.0/libpostal/data_version
-        ```
-
     1. :warning:
        **macOS** - [File sharing](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/share-directories-with-docker.md#macos)
        must be enabled for `SENZING_VOLUME`.
@@ -105,6 +96,15 @@ This repository assumes a working knowledge of:
     export SENZING_ETC_DIR=${SENZING_VOLUME}/etc
     export SENZING_G2_DIR=${SENZING_VOLUME}/g2
     export SENZING_VAR_DIR=${SENZING_VOLUME}/var
+    ```
+
+1. Here's a simple test to see if `SENZING_G2_DIR` and `SENZING_DATA_VERSION_DIR` are correct.
+   The following commands should return file contents.
+   Example:
+
+    ```console
+    cat ${SENZING_G2_DIR}/g2BuildVersion.json
+    cat ${SENZING_DATA_VERSION_DIR}/libpostal/data_version
     ```
 
 ### Docker network
