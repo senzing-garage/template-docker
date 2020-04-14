@@ -19,7 +19,7 @@ See [best practices](docs/best-practices.md).
 1. [Demonstrate using Docker](#demonstrate-using-docker)
     1. [Install Senzing](#install-senzing)
     1. [Configure Senzing](#configure-senzing)
-    1. [Volumes](#volumes)
+    1. [Docker volumes](#docker-volumes)
     1. [Docker network](#docker-network)
     1. [Docker user](#docker-user)
     1. [External database](#external-database)
@@ -71,7 +71,7 @@ This repository assumes a working knowledge of:
 1. If Senzing has not been configured, visit
    "[How to configure Senzing using Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/configure-senzing-using-docker.md)".
 
-### Volumes
+### Docker volumes
 
 1. :pencil2: Specify the directory containing the Senzing installation.
    Use the same `SENZING_VOLUME` value used in the prior steps.
