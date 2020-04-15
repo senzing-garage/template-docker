@@ -26,7 +26,7 @@ See [best practices](docs/best-practices.md).
 1. [Develop](#develop)
     1. [Prerequisite software for development](#prerequisite-software-for-development)
     1. [Clone repository](#clone-repository)
-    1. [Build docker image](#build-docker-image)
+    1. [Build Docker image](#build-docker-image)
 1. [Examples](#examples)
 1. [Advanced](#advanced)
     1. [Configuration](#configuration)
