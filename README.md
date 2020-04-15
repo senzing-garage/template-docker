@@ -25,7 +25,7 @@ See [best practices](docs/best-practices.md).
     1. [Docker user](#docker-user)
     1. [External database](#external-database)
     1. [Database support](#database-support)
-    1. [Run docker container](#run-docker-container)
+    1. [Run Docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisite software for development](#prerequisite-software-for-development)
     1. [Clone repository](#clone-repository)
@@ -33,6 +33,7 @@ See [best practices](docs/best-practices.md).
 1. [Examples](#examples)
 1. [Advanced](#advanced)
     1. [Configuration](#configuration)
+    1. [Using Docker with system install](#using-docker-with-system-install)
 1. [Errors](#errors)
 1. [References](#references)
 
