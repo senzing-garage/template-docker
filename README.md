@@ -17,6 +17,7 @@ See [best practices](docs/best-practices.md).
     1. [Time](#time)
     1. [Background knowledge](#background-knowledge)
 1. [Demonstrate using Docker](#demonstrate-using-docker)
+    1. [Prerequisite software for Docker](#prerequisite-software-for-docker)
     1. [Install Senzing](#install-senzing)
     1. [Configure Senzing](#configure-senzing)
     1. [Docker volumes](#docker-volumes)
@@ -26,7 +27,7 @@ See [best practices](docs/best-practices.md).
     1. [Database support](#database-support)
     1. [Run docker container](#run-docker-container)
 1. [Develop](#develop)
-    1. [Prerequisite software](#prerequisite-software)
+    1. [Prerequisite software for development](#prerequisite-software-for-development)
     1. [Clone repository](#clone-repository)
     1. [Build docker image](#build-docker-image)
 1. [Examples](#examples)
@@ -61,10 +62,18 @@ This repository assumes a working knowledge of:
 
 ## Demonstrate using Docker
 
+### Prerequisite software for Docker
+
+The following software programs need to be installed:
+
+1. [docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/install-docker.md)
+
 ### Install Senzing
 
 1. If Senzing has not been installed, visit
    "[How to install Senzing using Docker](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/install-senzing-using-docker.md)".
+    1. If using Docker with a previous "system install" of Senzing,
+       see [Using Docker with system install](#using-docker-with-system-install).
 
 ### Configure Senzing
 
@@ -74,9 +83,10 @@ This repository assumes a working knowledge of:
 ### Docker volumes
 
 Senzing Docker images follow the [Linux File Hierarchy Standard](https://refspecs.linuxfoundation.org/FHS_3.0/fhs-3.0.pdf).
-Inside the docker container, Senzing artifacts will be located in `/opt/senzing`, `/etc/opt/senzing`, and `/var/opt/senzing`.
+Inside the Docker container, Senzing artifacts will be located in `/opt/senzing`, `/etc/opt/senzing`, and `/var/opt/senzing`.
 
-1. :pencil2: Specify the directory containing the Senzing installation.
+1. :pencil2: Specify the directory containing the Senzing installation on the host system
+   (i.e. *outside* the Docker container).
    Use the same `SENZING_VOLUME` value used in the prior steps.
    Example:
 
@@ -112,16 +122,16 @@ Inside the docker container, Senzing artifacts will be located in `/opt/senzing`
 
 ### Docker network
 
-:thinking: **Optional:**  Use if docker container is part of a docker network.
+:thinking: **Optional:**  Use if Docker container is part of a Docker network.
 
-1. List docker networks.
+1. List Docker networks.
    Example:
 
     ```console
     sudo docker network ls
     ```
 
-1. :pencil2: Specify docker network.
+1. :pencil2: Specify Docker network.
    Choose value from NAME column of `docker network ls`.
    Example:
 
@@ -138,7 +148,7 @@ Inside the docker container, Senzing artifacts will be located in `/opt/senzing`
 
 ### Docker user
 
-:thinking: **Optional:**  The docker container runs as "USER 1001".
+:thinking: **Optional:**  The Docker container runs as "USER 1001".
 Use if a different userid (UID) is required.
 
 1. :pencil2: Identify user.
@@ -204,14 +214,14 @@ For other databases, these steps may be skipped.
    [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-mssql.md)
    instructions to set `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
-### Run docker container
+### Run Docker container
 
-Although the `docker run` command looks complex,
+Although the `Docker run` command looks complex,
 it accounts for all of the optional variations described above.
 Unset environment variables have no effect on the
 `docker run` command and may be removed or remain.
 
-1. Run docker container.
+1. Run Docker container.
    Example:
 
     ```console
@@ -235,7 +245,7 @@ Unset environment variables have no effect on the
 
 The following instructions are used when modifying and building the Docker image.
 
-### Prerequisite software
+### Prerequisite software for development
 
 The following software programs need to be installed:
 
@@ -259,7 +269,7 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 
 1. Follow steps in [clone-repository](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/clone-repository.md) to install the Git repository.
 
-### Build docker image
+### Build Docker image
 
 1. **Option #1:** Using `docker` command and GitHub.
 
@@ -283,7 +293,7 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
     sudo make docker-build
     ```
 
-    Note: `sudo make docker-build-development-cache` can be used to create cached docker layers.
+    Note: `sudo make docker-build-development-cache` can be used to create cached Docker layers.
 
 ## Examples
 
@@ -301,6 +311,21 @@ Configuration values specified by environment variable or command line parameter
 - **[SENZING_NETWORK](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_network)**
 - **[SENZING_RUNAS_USER](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_runas_user)**
 - **[SENZING_VAR_DIR](https://github.com/Senzing/knowledge-base/blob/master/lists/environment-variables.md#senzing_var_dir)**
+
+### Using Docker with system install
+
+It is possible to use Docker with a Senzing "system install" on a host system.
+In this case, the environment variables describing directories need to have values of the "system install" locations.
+
+1. Identify the `data_version`, `etc`, `g2`, and `var` directories.
+   Example:
+
+    ```console
+    export SENZING_DATA_VERSION_DIR=/opt/senzing/data/1.0.0
+    export SENZING_ETC_DIR=/etc/opt/senzing
+    export SENZING_G2_DIR=/opt/senzing/g2
+    export SENZING_VAR_DIR=/var/opt/senzing
+    ```
 
 ## Errors
 
