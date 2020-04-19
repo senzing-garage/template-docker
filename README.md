@@ -1,17 +1,71 @@
 # template-docker
 
+## Preamble
+
+At [Senzing](http://senzing.com),
+we strive to create GitHub documentation in a
+"[don't make me think](https://github.com/Senzing/knowledge-base/blob/master/WHATIS/dont-make-me-think.md)" style.
+For the most part, instructions are copy and paste.
+Whenever thinking is needed, it's marked with a "thinking" icon :thinking:.
+Whenever customization is needed, it's marked with a "pencil" icon :pencil2:.
+If the instructions are not clear, please let us know by opening a new
+[Documentation issue](https://github.com/Senzing/template-python/issues/new?template=documentation_request.md)
+describing where we can improve.   Now on with the show...
+
 ## Overview
+
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+:arrow_down:
+
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+
+:warning: This section should be replaced with real "**Overview**" content after initial repository creation. :warning:
 
 This repository shows best practices for creating a `docker-*` repository.
 See [best practices](docs/best-practices.md).
 
-### Related artifacts
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
+:warning:
 
-1. [DockerHub](https://hub.docker.com/r/senzing/xxxxxxxx)
-1. [Helm Chart](https://github.com/Senzing/charts/tree/master/charts/xxxxxxxx)
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
+:arrow_up:
 
 ### Contents
 
+1. [Related artifacts](#related-artifacts)
 1. [Expectations](#expectations)
 1. [Demonstrate using Docker](#demonstrate-using-docker)
     1. [Prerequisite software for Docker](#prerequisite-software-for-docker)
@@ -34,13 +88,18 @@ See [best practices](docs/best-practices.md).
 1. [Errors](#errors)
 1. [References](#references)
 
-### Legend
+#### Legend
 
 1. :thinking: - A "thinker" icon means that a little extra thinking may be required.
-   Perhaps you'll need to make some choices.
+   Perhaps there are some choices to be made.
    Perhaps it's an optional step.
 1. :pencil2: - A "pencil" icon means that the instructions may need modification before performing.
 1. :warning: - A "warning" icon means that something tricky is happening, so pay attention.
+
+## Related artifacts
+
+1. [DockerHub](https://hub.docker.com/r/senzing/xxxxxxxx)
+1. [Helm Chart](https://github.com/Senzing/charts/tree/master/charts/xxxxxxxx)
 
 ## Expectations
 
