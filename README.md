@@ -72,8 +72,8 @@ See [best practices](docs/best-practices.md).
     1. [Docker volumes](#docker-volumes)
     1. [Docker network](#docker-network)
     1. [Docker user](#docker-user)
-    1. [External database](#external-database)
     1. [Database support](#database-support)
+    1. [External database](#external-database)
     1. [Run Docker container](#run-docker-container)
 1. [Develop](#develop)
     1. [Prerequisites for development](#prerequisites-for-development)
@@ -218,6 +218,18 @@ Use if a different userid (UID) is required.
     export SENZING_RUNAS_USER_PARAMETER="--user ${SENZING_RUNAS_USER}"
     ```
 
+### Database support
+
+:thinking: **Optional:**  Some databases need additional support.
+For other databases, these steps may be skipped.
+
+1. **Db2:** See
+   [Support Db2](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-db2.md)
+   instructions to set `SENZING_OPT_IBM_DIR_PARAMETER`.
+1. **MS SQL:** See
+   [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-mssql.md)
+   instructions to set `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
+
 ### External database
 
 :thinking: **Optional:**  Use if storing data in an external database.
@@ -248,18 +260,6 @@ If not specified, the internal SQLite database will be used.
     ```console
     export SENZING_DATABASE_URL_PARAMETER="--env SENZING_DATABASE_URL=${SENZING_DATABASE_URL}"
     ```
-
-### Database support
-
-:thinking: **Optional:**  Some databases need additional support.
-For other databases, these steps may be skipped.
-
-1. **Db2:** See
-   [Support Db2](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-db2.md)
-   instructions to set `SENZING_OPT_IBM_DIR_PARAMETER`.
-1. **MS SQL:** See
-   [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/master/HOWTO/support-mssql.md)
-   instructions to set `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
 ### Run Docker container
 
@@ -350,7 +350,13 @@ see [Environment Variables](https://github.com/Senzing/knowledge-base/blob/maste
 
 ### Examples of CLI
 
+The following examples require initialization described in
+[Demonstrate using Command Line Interface](#demonstrate-using-command-line-interface).
+
 ### Examples of Docker
+
+The following examples require initialization described in
+[Demonstrate using Docker](#demonstrate-using-docker).
 
 ## Advanced
 
