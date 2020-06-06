@@ -265,7 +265,7 @@ If not specified, the internal SQLite database will be used.
 
 Although the `Docker run` command looks complex,
 it accounts for all of the optional variations described above.
-Unset environment variables have no effect on the
+Unset `*_PARAMETER` environment variables have no effect on the
 `docker run` command and may be removed or remain.
 
 1. Run Docker container.
