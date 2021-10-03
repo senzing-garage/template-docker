@@ -1,4 +1,4 @@
-name: identify_cusomter
+name: identify_customer
 
 on:
   issues:
@@ -32,4 +32,4 @@ jobs:
         if: ${{ env.BOOL == 'false' }}
         uses: andymckay/labeler@1.0.3
         with:
-          add-labels: "customer-submission, triage"
+          add-labels: "customer-submission"
