@@ -1,7 +1,7 @@
-ARG BASE_IMAGE=senzing/senzing-base:1.6.2
+ARG BASE_IMAGE=debian:10.11@sha256:9a1f494bb52e5d18e2dfb0fd6e59dbfe69aae9feecff1b246ad69984fbe25772
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2021-10-11
+ENV REFRESHED_AT=2021-12-07
 
 LABEL Name="senzing/template" \
       Maintainer="support@senzing.com" \
