@@ -13,6 +13,13 @@ HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
 USER root
 
+# Install packages via PIP.
+
+COPY requirements.txt ./
+RUN pip3 install --upgrade pip \
+ && pip3 install -r requirements.txt \
+ && rm requirements.txt
+
 # Install packages via apt.
 
 # Copy files from repository.
