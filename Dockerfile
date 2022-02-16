@@ -1,11 +1,11 @@
-ARG BASE_IMAGE=senzing/senzing-base:1.6.4
+ARG BASE_IMAGE=debian:11.2-slim@sha256:4c25ffa6ef572cf0d57da8c634769a08ae94529f7de5be5587ec8ce7b9b50f9c
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2022-01-06
+ENV REFRESHED_AT=2022-02-16
 
 LABEL Name="senzing/template" \
       Maintainer="support@senzing.com" \
-      Version="1.3.1"
+      Version="1.3.2"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
