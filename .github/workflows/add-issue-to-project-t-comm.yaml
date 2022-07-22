@@ -1,8 +1,7 @@
 # Based on
 # - https://github.com/srggrs/assign-one-project-github-action
 
-name: Auto Assign issue to Project(s)
-
+name: add-issue-to-project-t-comm.yaml
 on:
   issues:
     types:
@@ -10,17 +9,13 @@ on:
       - opened
 env:
   GITHUB_TOKEN: ${{ secrets.SENZING_GITHUB_ACCESS_TOKEN }}
-  REPO_URL: ${{ github.event.repository.url}}
-
 jobs:
   assign_one_project:
+    name: Add issue to Senzing Community project
     runs-on: ubuntu-latest
     steps:
-    - name: Assign issues in repo with topics to repositories
+    - name: Assign issue to project
       uses: Senzing/github-action-add-issue-to-project@main
       with:
-        project1: 'https://github.com/orgs/Senzing/projects/2'
-        project2: 'https://github.com/orgs/Senzing/projects/6'
-        topic1: 't-comm'
-        topic2: 't-ast'
+        project: 'https://github.com/orgs/Senzing/projects/2'
         column_name: 'Backlog'
