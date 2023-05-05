@@ -3,9 +3,9 @@ FROM ${BASE_IMAGE}
 
 ENV REFRESHED_AT=2023-04-03
 
-LABEL Name="senzing/template" \
+LABEL Name="senzing/template-docker" \
       Maintainer="support@senzing.com" \
-      Version="1.3.2"
+      Version="1.0.0"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
@@ -13,8 +13,11 @@ HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
 USER root
 
+# Install packages via apt.
+
 RUN apt-get update \
  && apt-get -y install \
+      less \
       python3 \
       python3-pip \
  && apt-get clean \
