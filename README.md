@@ -40,12 +40,12 @@ See [best practices](docs/best-practices.md).
 
 At [Senzing](http://senzing.com),
 we strive to create GitHub documentation in a
-"[don't make me think](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/dont-make-me-think.md)" style.
+"[don't make me think](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/dont-make-me-think.md)" style.
 For the most part, instructions are copy and paste.
 Whenever thinking is needed, it's marked with a "thinking" icon :thinking:.
 Whenever customization is needed, it's marked with a "pencil" icon :pencil2:.
 If the instructions are not clear, please let us know by opening a new
-[Documentation issue](https://github.com/Senzing/template-python/issues/new?template=documentation_request.md)
+[Documentation issue](https://github.com/senzing-garage/template-python/issues/new?template=documentation_request.md)
 describing where we can improve.   Now on with the show...
 
 ### Legend
@@ -61,7 +61,7 @@ describing where we can improve.   Now on with the show...
 - **Space:** This repository and demonstration require 6 GB free disk space.
 - **Time:** Budget 40 minutes to get the demonstration up-and-running, depending on CPU and network speeds.
 - **Background knowledge:** This repository assumes a working knowledge of:
-  - [Docker](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/docker.md)
+  - [Docker](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md)
 
 ## Demonstrate using Docker
 
@@ -71,9 +71,9 @@ describing where we can improve.   Now on with the show...
 These are "one-time tasks" which may already have been completed.
 
 1. The following software programs need to be installed:
-    1. [docker](https://github.com/Senzing/knowledge-base/blob/main/WHATIS/docker.md)
-1. [Install Senzing using Docker](https://github.com/Senzing/knowledge-base/blob/main/HOWTO/install-senzing-using-docker.md)
-1. [Configure Senzing database using Docker](https://github.com/Senzing/knowledge-base/blob/main/HOWTO/configure-senzing-database-using-docker.md)
+    1. [docker](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md)
+1. [Install Senzing using Docker](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/install-senzing-using-docker.md)
+1. [Configure Senzing database using Docker](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/configure-senzing-database-using-docker.md)
 
 ### Database support
 
@@ -81,10 +81,10 @@ These are "one-time tasks" which may already have been completed.
 For other databases, these steps may be skipped.
 
 1. **Db2:** See
-   [Support Db2](https://github.com/Senzing/knowledge-base/blob/main/HOWTO/support-db2.md)
+   [Support Db2](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/support-db2.md)
    instructions to set `SENZING_OPT_IBM_DIR_PARAMETER`.
 1. **MS SQL:** See
-   [Support MS SQL](https://github.com/Senzing/knowledge-base/blob/main/HOWTO/support-mssql.md)
+   [Support MS SQL](https://github.com/senzing-garage/knowledge-base/blob/main/HOWTO/support-mssql.md)
    instructions to set `SENZING_OPT_MICROSOFT_DIR_PARAMETER`.
 
 ### External database
@@ -145,8 +145,8 @@ Unset `*_PARAMETER` environment variables have no effect on the
 
 Configuration values specified by environment variable or command line parameter.
 
-- **[SENZING_DATABASE_URL](https://github.com/Senzing/knowledge-base/blob/main/lists/environment-variables.md#senzing_database_url)**
-- **[SENZING_DEBUG](https://github.com/Senzing/knowledge-base/blob/main/lists/environment-variables.md#senzing_debug)**
+- **[SENZING_DATABASE_URL](https://github.com/senzing-garage/knowledge-base/blob/main/lists/environment-variables.md#senzing_database_url)**
+- **[SENZING_DEBUG](https://github.com/senzing-garage/knowledge-base/blob/main/lists/environment-variables.md#senzing_debug)**
 
 ## References
 
@@ -155,4 +155,4 @@ Configuration values specified by environment variable or command line parameter
 1. [Examples](docs/examples.md)
 1. Related artifacts:
     1. [DockerHub](https://hub.docker.com/r/senzing/template-docker)
-    1. [Helm Chart](https://github.com/Senzing/charts/tree/main/charts/template-docker)
+    1. [Helm Chart](https://github.com/senzing-garage/charts/tree/main/charts/template-docker)
