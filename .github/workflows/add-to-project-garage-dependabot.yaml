@@ -5,7 +5,6 @@ on:
     branches: [main]
 
 jobs:
-
   add-to-project-dependabot:
     secrets:
       SENZING_GITHUB_PROJECT_RW_TOKEN: ${{ secrets.SENZING_GITHUB_PROJECT_RW_TOKEN }}
