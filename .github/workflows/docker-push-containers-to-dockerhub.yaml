@@ -8,6 +8,7 @@ on:
 jobs:
   docker-push-containers-to-dockerhub:
     runs-on: ubuntu-latest
+
     steps:
       - name: build docker image and push to DockerHub
         uses: senzing-factory/github-action-docker-buildx-build@v1
