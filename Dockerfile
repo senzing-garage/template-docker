@@ -5,7 +5,7 @@ ENV REFRESHED_AT=2024-06-24
 
 LABEL Name="senzing/template-docker" \
   Maintainer="support@senzing.com" \
-  Version="1.3.3"
+  Version="1.3.4"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 

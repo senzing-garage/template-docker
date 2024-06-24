@@ -11,6 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Thing 5
 - Thing 4
 
+## [1.3.4] - 2024-06-24
+
+### Changed in 1.3.4
+
+- In `Dockerfile`, updated FROM instruction to `debian:11.9-slim@sha256:acc5810124f0929ab44fc7913c0ad936b074cbd3eadf094ac120190862ba36c4`
+
 ## [1.3.3] - 2024-05-22
 
 ### Changed in 1.3.3
