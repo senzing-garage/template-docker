@@ -20,8 +20,14 @@ RUN apt-get update \
   less \
   python3 \
   python3-pip \
+  python3-venv \
   && apt-get clean \
   && rm -rf /var/lib/apt/lists/*
+
+# Activate virtual environment.
+
+RUN python3 -m venv /app/venv
+ENV PATH="/app/venv/bin:$PATH"
 
 # Install packages via PIP.
 
