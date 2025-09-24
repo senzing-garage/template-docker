@@ -5,20 +5,21 @@
   "language": "en",
   // words - list of words to be always considered correct
   "words": [
-      "Senzing",
-      "CODEOWNER",
-      "ICLA",
-      "CCLA",
-      "pydevproject",
-      "buildx",
-      "dockerhub",
-      "stackoverflow",
-      "rootfs",
-      "Dockerfiles",
-      "projectatomic",
-      "toplevel",
-      "alnum"
-    ],
+    "alnum",
+    "buildx",
+    "CCLA",
+    "CODEOWNER",
+    "Dockerfiles",
+    "dockerhub",
+    "ICLA",
+    "projectatomic",
+    "pydevproject",
+    "rootfs",
+    "Senzing",
+    "stackoverflow",
+    "toplevel",
+    "venv"
+  ],
   "ignorePaths": [
     ".git/**"
   ]
