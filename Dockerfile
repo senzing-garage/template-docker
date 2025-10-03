@@ -16,7 +16,7 @@ USER root
 # Install packages via apt.
 
 RUN apt-get update \
-  && apt-get -y install \
+  && apt-get -y --no-install-recommends install \
   less \
   python3 \
   python3-pip \
