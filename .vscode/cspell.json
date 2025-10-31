@@ -12,6 +12,7 @@
     "CODEOWNER",
     "Dockerfiles",
     "dockerhub",
+    "dorny",
     "elif",
     "ICLA",
     "projectatomic",
@@ -19,6 +20,7 @@
     "pyproject",
     "rootfs",
     "Senzing",
+    "setuptools",
     "stackoverflow",
     "toplevel",
     "venv"

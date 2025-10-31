@@ -32,11 +32,10 @@ jobs:
       contents: read
     runs-on: ubuntu-latest
 
-    # Skip for Renovate and if no Dockerfiles changed
+    # Only skip if Renovate AND Dockerfiles changed
     if: |
-      (github.actor != 'renovate[bot]' && github.actor != 'renovate') &&
-      github.event_name != 'pull_request' || 
-      contains(github.event.pull_request.changed_files, 'Dockerfile')
+      needs.detect-changes.outputs.dockerfiles != 'true' ||
+      (github.actor != 'renovate[bot]' && github.actor != 'renovate')
 
     steps:
       - uses: actions/checkout@v5
