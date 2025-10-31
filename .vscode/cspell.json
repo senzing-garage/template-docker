@@ -6,6 +6,7 @@
   // words - list of words to be always considered correct
   "words": [
     "alnum",
+    "bugtracker",
     "buildx",
     "CCLA",
     "CODEOWNER",
@@ -14,6 +15,7 @@
     "ICLA",
     "projectatomic",
     "pydevproject",
+    "pyproject",
     "rootfs",
     "Senzing",
     "stackoverflow",

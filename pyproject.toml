@@ -1,0 +1,30 @@
+[project]
+name = "template-docker"
+version = "1.3.6"
+description = "Template for Docker images"
+authors = [{ name = "senzing", email = "support@senzing.com" }]
+readme = "README.md"
+requires-python = ">=3.13"
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Operating System :: OS Independent",
+]
+dependencies = [""]
+license = "Apache-2.0"
+license-files = [
+  "LICENSE",
+  ".github/senzing-corporate-contributor-license-agreement.pdf",
+  ".github/senzing-individual-contributor-license-agreement.pdf",
+]
+
+[project.urls]
+bugtracker = "https://github.com/senzing-garage/template-docker/issues"
+changelog = "https://github.com/senzing-garage/template-docker/blob/main/CHANGELOG.md"
+source = "https://github.com/senzing-garage/template-docker"
+
+[project.entry-points."console.scripts"]
+template-docker = "template-docker.main_entry:main"
+
+[build-system]
+requires = ["setuptools>=80", "wheel"]
+build-backend = "setuptools.build_meta"

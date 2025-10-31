@@ -5,7 +5,7 @@ ENV REFRESHED_AT=2024-06-24
 
 LABEL Name="senzing/template-docker" \
   Maintainer="support@senzing.com" \
-  Version="1.3.4"
+  Version="1.3.6"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
@@ -31,12 +31,9 @@ ENV PATH="/app/venv/bin:$PATH"
 
 # Install packages via PIP.
 
-COPY requirements.txt ./
-RUN pip3 install --upgrade pip \
-  && pip3 install -r requirements.txt \
-  && rm requirements.txt
-
-# Install packages via apt.
+COPY pyproject.toml ./
+RUN python3 -m pip install --upgrade pip \
+ && python3 -m pip install .
 
 # Copy files from repository.
 
