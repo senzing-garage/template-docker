@@ -32,8 +32,10 @@ ENV PATH="/app/venv/bin:$PATH"
 # Install packages via PIP.
 
 COPY pyproject.toml ./
-RUN python3 -m pip install --upgrade pip \
- && python3 -m pip install .
+RUN python3 -m pip install --upgrade pip
+# example, skipping in template 
+# as there is nothing to build
+# && python3 -m pip install .
 
 # Copy files from repository.
 
