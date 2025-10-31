@@ -1,11 +1,11 @@
 ARG BASE_IMAGE=debian:13.1-slim@sha256:66b37a5078a77098bfc80175fb5eb881a3196809242fd295b25502854e12cbec
 FROM ${BASE_IMAGE}
 
-ENV REFRESHED_AT=2024-06-24
+ENV REFRESHED_AT=2025-10-31
 
 LABEL Name="senzing/template-docker" \
   Maintainer="support@senzing.com" \
-  Version="1.3.4"
+  Version="1.3.6"
 
 HEALTHCHECK CMD ["/app/healthcheck.sh"]
 
@@ -31,12 +31,11 @@ ENV PATH="/app/venv/bin:$PATH"
 
 # Install packages via PIP.
 
-COPY requirements.txt ./
-RUN pip3 install --upgrade pip \
-  && pip3 install -r requirements.txt \
-  && rm requirements.txt
-
-# Install packages via apt.
+COPY pyproject.toml ./
+RUN python3 -m pip install --upgrade pip
+# example, skipping in template 
+# as there is nothing to build
+# && python3 -m pip install .
 
 # Copy files from repository.
 

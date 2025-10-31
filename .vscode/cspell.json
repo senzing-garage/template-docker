@@ -1,26 +1,26 @@
 {
-  // Version of the setting file.  Always 0.2
   "version": "0.2",
-  // language - current active spelling language
   "language": "en",
-  // words - list of words to be always considered correct
   "words": [
     "alnum",
+    "bugtracker",
     "buildx",
     "CCLA",
     "CODEOWNER",
     "Dockerfiles",
     "dockerhub",
+    "dorny",
+    "elif",
     "ICLA",
     "projectatomic",
     "pydevproject",
+    "pyproject",
     "rootfs",
     "Senzing",
+    "setuptools",
     "stackoverflow",
     "toplevel",
     "venv"
   ],
-  "ignorePaths": [
-    ".git/**"
-  ]
+  "ignorePaths": [".git/**"]
 }

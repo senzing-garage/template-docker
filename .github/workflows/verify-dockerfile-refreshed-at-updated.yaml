@@ -1,0 +1,187 @@
+name: Verify Dockerfile REFRESHED_AT Updated
+
+on:
+  pull_request:
+
+permissions: {}
+
+jobs:
+  detect-changes:
+    name: Detect Dockerfile Changes
+    outputs:
+      dockerfiles: ${{ steps.filter.outputs.dockerfiles }}
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          persist-credentials: false
+
+      - uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            dockerfiles:
+              - '**/Dockerfile*'
+
+  check-refreshed-at:
+    name: Check REFRESHED_AT in Dockerfiles
+    permissions:
+      contents: read
+    runs-on: ubuntu-latest
+
+    # Only skip if Renovate AND Dockerfiles changed
+    if: |
+      needs.detect-changes.outputs.dockerfiles != 'true' || (github.actor != 'renovate[bot]' && github.actor != 'renovate')
+
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Get base commit
+        id: base
+        run: |
+          echo "base=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+
+      - name: Find modified Dockerfiles
+        id: find-dockerfiles
+        run: |
+          BASE_SHA="${{ github.event.pull_request.base.sha }}"
+          HEAD_SHA="${{ github.event.pull_request.head.sha }}"
+
+          # Find all modified Dockerfiles
+          MODIFIED_DOCKERFILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -E 'Dockerfile.*$' || true)
+
+          if [ -z "$MODIFIED_DOCKERFILES" ]; then
+            echo "[INFO] No Dockerfiles modified"
+            echo "dockerfiles=" >> "$GITHUB_OUTPUT"
+          else
+            echo "[INFO] Modified Dockerfiles:"
+            echo "[INFO] $MODIFIED_DOCKERFILES"
+            # Convert to JSON array
+            DOCKERFILES_JSON=$(echo "$MODIFIED_DOCKERFILES" | jq -R -s -c 'split("\n") | map(select(length > 0))')
+            echo "dockerfiles=$DOCKERFILES_JSON" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Check REFRESHED_AT updates
+        env:
+          BASE_SHA: ${{ steps.base.outputs.base }}
+          DOCKERFILES: ${{ steps.find-dockerfiles.outputs.dockerfiles }}
+        if: steps.find-dockerfiles.outputs.dockerfiles != ''
+        run: |
+          # Parse JSON array
+          echo "$DOCKERFILES" | jq -r '.[]' | while read -r dockerfile; do
+            echo "================================================"
+            echo "Checking: $dockerfile"
+            echo "================================================"
+
+            # Check if file has REFRESHED_AT lines
+            if ! grep -q "REFRESHED_AT=" "$dockerfile" 2>/dev/null; then
+              echo "[INFO] No REFRESHED_AT lines found in $dockerfile (skipping)"
+              continue
+            fi
+
+            # Get all REFRESHED_AT lines from current version
+            CURRENT_LINES=$(grep -n "REFRESHED_AT=" "$dockerfile" | sort)
+
+            if [ -z "$CURRENT_LINES" ]; then
+              echo "[INFO] No REFRESHED_AT lines in current version"
+              continue
+            fi
+
+            echo "[INFO] Found REFRESHED_AT lines in current version:"
+            echo "[INFO] $CURRENT_LINES"
+            echo "[INFO] "
+
+            # Get the old version of the file
+            OLD_CONTENT=$(git show "$BASE_SHA:$dockerfile" 2>/dev/null || echo "")
+
+            if [ -z "$OLD_CONTENT" ]; then
+              echo "[INFO] New Dockerfile (no previous version to compare)"
+              continue
+            fi
+
+            # Get all REFRESHED_AT lines from old version
+            OLD_LINES=$(echo "$OLD_CONTENT" | grep -n "REFRESHED_AT=" | sort || true)
+
+            if [ -z "$OLD_LINES" ]; then
+              echo "[INFO] REFRESHED_AT lines are new additions"
+              continue
+            fi
+
+            echo "[INFO] REFRESHED_AT lines in previous version:"
+            echo "[INFO] $OLD_LINES"
+            echo "[INFO] "
+
+            # Check if any REFRESHED_AT line was modified
+            ALL_MODIFIED=true
+            UNCHANGED_LINES=""
+
+            # Compare each REFRESHED_AT line
+            while IFS= read -r current_line; do
+              LINE_NUM=$(echo "$current_line" | cut -d: -f1)
+              CURRENT_VALUE=$(echo "$current_line" | cut -d: -f2-)
+
+              # Get corresponding old line (same line number)
+              OLD_VALUE=$(echo "$OLD_CONTENT" | sed -n "${LINE_NUM}p")
+
+              if [ "$CURRENT_VALUE" == "$OLD_VALUE" ]; then
+                ALL_MODIFIED=false
+                UNCHANGED_LINES="${UNCHANGED_LINES}Line ${LINE_NUM}: ${CURRENT_VALUE}\n"
+              fi
+            done <<< "$CURRENT_LINES"
+
+            if [ "$ALL_MODIFIED" = false ]; then
+              echo "::error::[ERROR] Not all REFRESHED_AT lines were updated in $dockerfile"
+              echo "[ERROR] "
+              echo "[ERROR] Unchanged lines:"
+              echo -e "::error::[ERROR] $UNCHANGED_LINES"
+              echo "[ERROR] "
+              echo "[ERROR] Please update all REFRESHED_AT values when modifying this Dockerfile."
+              # Write to a file to persist across loop iterations
+              echo "1" > /tmp/check_failed
+            else
+              echo "[INFO] All REFRESHED_AT lines were updated in $dockerfile"
+            fi
+
+            echo ""
+          done
+
+          # Check if any file failed
+          if [ -f /tmp/check_failed ]; then
+            echo "::error::[ERROR] One or more Dockerfiles have unchanged REFRESHED_AT lines"
+            exit 1
+          fi
+
+          echo "::notice::[INFO] All checks passed!"
+
+      - name: Success message
+        if: success()
+        run: |
+          echo "[INFO] All REFRESHED_AT lines have been properly updated"
+
+  dockerfile-check-complete:
+    env:
+      RESULT: ${{ needs.check-refreshed-at.result }}
+    if: always()
+    name: Dockerfile Check Status
+    needs: [check-refreshed-at]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check status
+        run: |
+          if [[ "${RESULT}" == "failure" ]]; then
+            echo "::error::[ERROR] REFRESHED_AT check failed"
+            exit 1
+          elif [[ "${RESULT}" == "skipped" ]]; then
+            echo "[INFO] No Dockerfiles modified or Renovate bot PR - check skipped (OK)"
+            exit 0
+          else
+            echo "[INFO] REFRESHED_AT check passed"
+            exit 0
+          fi

@@ -1,0 +1,4 @@
+paths:
+  .github/workflows/verify-dockerfile-refreshed-at-updated.yaml:
+    ignore:
+      - 'property "detect-changes" is not defined in object type {}'
