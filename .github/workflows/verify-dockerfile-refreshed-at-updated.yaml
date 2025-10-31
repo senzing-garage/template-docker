@@ -34,8 +34,7 @@ jobs:
 
     # Only skip if Renovate AND Dockerfiles changed
     if: |
-      needs.detect-changes.outputs.dockerfiles != 'true' ||
-      (github.actor != 'renovate[bot]' && github.actor != 'renovate')
+      needs.detect-changes.outputs.dockerfiles != 'true' || (github.actor != 'renovate[bot]' && github.actor != 'renovate')
 
     steps:
       - uses: actions/checkout@v5
@@ -46,7 +45,7 @@ jobs:
       - name: Get base commit
         id: base
         run: |
-          echo "base=${{ github.event.pull_request.base.sha }}" >> $GITHUB_OUTPUT
+          echo "base=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
 
       - name: Find modified Dockerfiles
         id: find-dockerfiles
@@ -59,24 +58,21 @@ jobs:
 
           if [ -z "$MODIFIED_DOCKERFILES" ]; then
             echo "[INFO] No Dockerfiles modified"
-            echo "dockerfiles=" >> $GITHUB_OUTPUT
+            echo "dockerfiles=" >> "$GITHUB_OUTPUT"
           else
             echo "[INFO] Modified Dockerfiles:"
             echo "[INFO] $MODIFIED_DOCKERFILES"
             # Convert to JSON array
             DOCKERFILES_JSON=$(echo "$MODIFIED_DOCKERFILES" | jq -R -s -c 'split("\n") | map(select(length > 0))')
-            echo "dockerfiles=$DOCKERFILES_JSON" >> $GITHUB_OUTPUT
+            echo "dockerfiles=$DOCKERFILES_JSON" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Check REFRESHED_AT updates
+        env:
+          BASE_SHA: ${{ steps.base.outputs.base }}
+          DOCKERFILES: ${{ steps.find-dockerfiles.outputs.dockerfiles }}
         if: steps.find-dockerfiles.outputs.dockerfiles != ''
         run: |
-          DOCKERFILES='${{ steps.find-dockerfiles.outputs.dockerfiles }}'
-          BASE_SHA='${{ steps.base.outputs.base }}'
-          HEAD_SHA='${{ github.sha }}'
-
-          FAILED=0
-
           # Parse JSON array
           echo "$DOCKERFILES" | jq -r '.[]' | while read -r dockerfile; do
             echo "================================================"
@@ -146,7 +142,6 @@ jobs:
               echo -e "::error::[ERROR] $UNCHANGED_LINES"
               echo "[ERROR] "
               echo "[ERROR] Please update all REFRESHED_AT values when modifying this Dockerfile."
-              FAILED=1
               # Write to a file to persist across loop iterations
               echo "1" > /tmp/check_failed
             else
@@ -170,18 +165,20 @@ jobs:
           echo "[INFO] All REFRESHED_AT lines have been properly updated"
 
   dockerfile-check-complete:
-    name: Dockerfile Check Status
-    runs-on: ubuntu-latest
-    needs: [check-refreshed-at]
+    env:
+      RESULT: ${{ needs.check-refreshed-at.result }}
     if: always()
+    name: Dockerfile Check Status
+    needs: [check-refreshed-at]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Check status
         run: |
-          if [[ "${{ needs.check-refreshed-at.result }}" == "failure" ]]; then
+          if [[ "${RESULT}" == "failure" ]]; then
             echo "::error::[ERROR] REFRESHED_AT check failed"
             exit 1
-          elif [[ "${{ needs.check-refreshed-at.result }}" == "skipped" ]]; then
+          elif [[ "${RESULT}" == "skipped" ]]; then
             echo "[INFO] No Dockerfiles modified or Renovate bot PR - check skipped (OK)"
             exit 0
           else
