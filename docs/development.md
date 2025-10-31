@@ -8,9 +8,9 @@ The following instructions are used when modifying and building the Docker image
 These are "one-time tasks" which may already have been completed.
 
 1. The following software programs need to be installed:
-   1. [git](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/git.md)
+   1. [Git](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/git.md)
    1. [make](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/make.md)
-   1. [docker](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md)
+   1. [Docker](https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md)
 
 ## Clone repository
 

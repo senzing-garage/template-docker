@@ -11,6 +11,7 @@
    1. Docker's [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
    1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices).
 1. Use "lint" when applicable.
+
    1. Online linter: [FROM: latest](https://www.fromlatest.io)
    1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) using Docker
 
@@ -30,18 +31,20 @@
 ## Makefile
 
 1. Modifications:
+
    1. Change following value to appropriate Docker tag.
 
       ```make
       DOCKER_IMAGE_NAME := senzing/template
       ```
 
-1. Use `make docker-build-base` occasionally to populate the docker image cache with layers that change infrequently.
+1. Use `make docker-build-base` occasionally to populate the Docker image cache with layers that change infrequently.
 1. Once a "base" has been created, use `make docker-build` to build during development and make final builds.
 
 ## CONTRIBUTING.md
 
 1. Modifications:
+
    1. Change following value to appropriate Git repository name.
 
       ```markdown
