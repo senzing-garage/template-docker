@@ -12,6 +12,7 @@
     "CODEOWNER",
     "Dockerfiles",
     "dockerhub",
+    "elif",
     "ICLA",
     "projectatomic",
     "pydevproject",
