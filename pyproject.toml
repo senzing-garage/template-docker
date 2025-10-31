@@ -22,9 +22,6 @@ bugtracker = "https://github.com/senzing-garage/template-docker/issues"
 changelog = "https://github.com/senzing-garage/template-docker/blob/main/CHANGELOG.md"
 source = "https://github.com/senzing-garage/template-docker"
 
-[project.entry-points."console.scripts"]
-template-docker = "template-docker.main_entry:main"
-
 [build-system]
 requires = ["setuptools>=80", "wheel"]
 build-backend = "setuptools.build_meta"

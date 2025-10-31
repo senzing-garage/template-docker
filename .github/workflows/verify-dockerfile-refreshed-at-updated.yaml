@@ -78,63 +78,63 @@ jobs:
             echo "================================================"
             echo "Checking: $dockerfile"
             echo "================================================"
-            
+
             # Check if file has REFRESHED_AT lines
             if ! grep -q "REFRESHED_AT=" "$dockerfile" 2>/dev/null; then
               echo "[INFO] No REFRESHED_AT lines found in $dockerfile (skipping)"
               continue
             fi
-            
+
             # Get all REFRESHED_AT lines from current version
             CURRENT_LINES=$(grep -n "REFRESHED_AT=" "$dockerfile" | sort)
-            
+
             if [ -z "$CURRENT_LINES" ]; then
               echo "[INFO] No REFRESHED_AT lines in current version"
               continue
             fi
-            
+
             echo "[INFO] Found REFRESHED_AT lines in current version:"
             echo "[INFO] $CURRENT_LINES"
             echo "[INFO] "
-            
+
             # Get the old version of the file
             OLD_CONTENT=$(git show "$BASE_SHA:$dockerfile" 2>/dev/null || echo "")
-            
+
             if [ -z "$OLD_CONTENT" ]; then
               echo "[INFO] New Dockerfile (no previous version to compare)"
               continue
             fi
-            
+
             # Get all REFRESHED_AT lines from old version
             OLD_LINES=$(echo "$OLD_CONTENT" | grep -n "REFRESHED_AT=" | sort || true)
-            
+
             if [ -z "$OLD_LINES" ]; then
               echo "[INFO] REFRESHED_AT lines are new additions"
               continue
             fi
-            
+
             echo "[INFO] REFRESHED_AT lines in previous version:"
             echo "[INFO] $OLD_LINES"
             echo "[INFO] "
-            
+
             # Check if any REFRESHED_AT line was modified
             ALL_MODIFIED=true
             UNCHANGED_LINES=""
-            
+
             # Compare each REFRESHED_AT line
             while IFS= read -r current_line; do
               LINE_NUM=$(echo "$current_line" | cut -d: -f1)
               CURRENT_VALUE=$(echo "$current_line" | cut -d: -f2-)
-              
+
               # Get corresponding old line (same line number)
               OLD_VALUE=$(echo "$OLD_CONTENT" | sed -n "${LINE_NUM}p")
-              
+
               if [ "$CURRENT_VALUE" == "$OLD_VALUE" ]; then
                 ALL_MODIFIED=false
                 UNCHANGED_LINES="${UNCHANGED_LINES}Line ${LINE_NUM}: ${CURRENT_VALUE}\n"
               fi
             done <<< "$CURRENT_LINES"
-            
+
             if [ "$ALL_MODIFIED" = false ]; then
               echo "::error::[ERROR] Not all REFRESHED_AT lines were updated in $dockerfile"
               echo "[ERROR] "
@@ -147,7 +147,7 @@ jobs:
             else
               echo "[INFO] All REFRESHED_AT lines were updated in $dockerfile"
             fi
-            
+
             echo ""
           done
 

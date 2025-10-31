@@ -11,7 +11,6 @@
    1. Docker's [Best practices for writing Dockerfiles](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/).
    1. Project Atomic's [Container Best practices](http://docs.projectatomic.io/container-best-practices).
 1. Use "lint" when applicable.
-
    1. Online linter: [FROM: latest](https://www.fromlatest.io)
    1. GitHub [projectatomic/dockerfile_lint](https://github.com/projectatomic/dockerfile_lint) using Docker
 
@@ -31,7 +30,6 @@
 ## Makefile
 
 1. Modifications:
-
    1. Change following value to appropriate Docker tag.
 
       ```make
@@ -44,7 +42,6 @@
 ## CONTRIBUTING.md
 
 1. Modifications:
-
    1. Change following value to appropriate Git repository name.
 
       ```markdown
