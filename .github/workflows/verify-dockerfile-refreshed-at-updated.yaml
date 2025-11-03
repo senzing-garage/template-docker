@@ -25,12 +25,14 @@ jobs:
           filters: |
             dockerfiles:
               - '**/Dockerfile*'
+              - '**/package.Dockerfile'
 
   check-refreshed-at:
     name: Check REFRESHED_AT in Dockerfiles
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    needs: detect-changes
 
     # Only skip if Renovate AND Dockerfiles changed
     if: |
@@ -53,8 +55,8 @@ jobs:
           BASE_SHA="${{ github.event.pull_request.base.sha }}"
           HEAD_SHA="${{ github.event.pull_request.head.sha }}"
 
-          # Find all modified Dockerfiles
-          MODIFIED_DOCKERFILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -E 'Dockerfile.*$' || true)
+          # Find all modified Dockerfiles and package.Dockerfile files
+          MODIFIED_DOCKERFILES=$(git diff --name-only "$BASE_SHA" "$HEAD_SHA" | grep -E '(Dockerfile.*|package\.Dockerfile)$' || true)
 
           if [ -z "$MODIFIED_DOCKERFILES" ]; then
             echo "[INFO] No Dockerfiles modified"
