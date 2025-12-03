@@ -2,26 +2,28 @@
   "version": "0.2",
   "language": "en",
   "words": [
-    "alnum",
-    "bugtracker",
-    "buildx",
     "CCLA",
     "CODEOWNER",
     "Dockerfiles",
+    "ICLA",
+    "Senzing",
+    "alnum",
+    "bugtracker",
+    "buildx",
     "dockerhub",
     "dorny",
     "elif",
     "esbenp",
-    "ICLA",
     "projectatomic",
     "pydevproject",
     "pyproject",
     "rootfs",
-    "Senzing",
     "setuptools",
     "stackoverflow",
     "toplevel",
     "venv"
   ],
-  "ignorePaths": [".git/**"]
+  "ignorePaths": [
+    ".git/**"
+  ]
 }
