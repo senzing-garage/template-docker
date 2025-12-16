@@ -1,4 +1,4 @@
-name: docker push containers to dockerhub
+name: Docker push containers to dockerhub
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           echo "repo=$(basename ${{ github.repository }})" >> "$GITHUB_OUTPUT"
         shell: bash
 
-      - name: build docker image and push to DockerHub
+      - name: Build docker image and push to DockerHub
         uses: senzing-factory/github-action-docker-buildx-build@v2
         with:
           image-repository: senzing/${{ steps.repo-basename.outputs.repo }}
