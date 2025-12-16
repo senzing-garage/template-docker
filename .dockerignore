@@ -8,7 +8,6 @@ CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 docker-compose.test.yaml
 docs/
-docs/
 LICENSE
 Makefile
 README.md
