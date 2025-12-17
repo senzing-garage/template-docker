@@ -1,4 +1,4 @@
-name: Verify Dockerfile REFRESHED_AT Updated
+name: Docker verify REFRESHED_AT Updated
 
 on:
   pull_request:
