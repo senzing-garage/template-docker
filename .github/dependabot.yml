@@ -3,9 +3,9 @@
 
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
+  - package-ecosystem: github-actions
     cooldown:
       default-days: 21
-    directory: "/"
+    directory: /
     schedule:
-      interval: "daily"
+      interval: daily

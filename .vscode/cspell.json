@@ -6,15 +6,27 @@
     "bugtracker",
     "buildx",
     "CCLA",
+    "choosealicense",
     "CODEOWNER",
+    "CODEOWNERS",
     "cooldown",
+    "coverprofile",
     "Dockerfiles",
     "dockerhub",
     "dorny",
+    "DYLD",
     "elif",
     "esbenp",
+    "godoc",
+    "GOPATH",
+    "gotest",
+    "gotestfmt",
     "healthcheck",
     "ICLA",
+    "osarch",
+    "osdetect",
+    "OSTYPE",
+    "pkill",
     "projectatomic",
     "pydevproject",
     "pyproject",
@@ -22,10 +34,11 @@
     "Senzing",
     "setuptools",
     "stackoverflow",
+    "taskkill",
+    "testdata",
     "toplevel",
-    "venv"
+    "venv",
+    "zizmor"
   ],
-  "ignorePaths": [
-    ".git/**"
-  ]
+  "ignorePaths": [".git/**"]
 }

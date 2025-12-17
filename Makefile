@@ -1,3 +1,13 @@
+# Makefile for Docker project
+
+# Detect the operating system and architecture.
+
+include makefiles/osdetect.mk
+
+# -----------------------------------------------------------------------------
+# Variables
+# -----------------------------------------------------------------------------
+
 # Git variables
 
 GIT_REPOSITORY_NAME := $(shell basename `git rev-parse --show-toplevel`)

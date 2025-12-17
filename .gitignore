@@ -8,3 +8,4 @@
 .history
 
 .claude/settings.local.json
+.coverage

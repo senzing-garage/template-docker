@@ -1,7 +1,6 @@
 # template-docker
 
-If you are beginning your journey with [Senzing],
-please start with [Senzing Quick Start guides].
+If you are beginning your journey with [Senzing], please start with [Senzing Quick Start guides].
 
 You are in the [Senzing Garage] where projects are "tinkered" on.
 Although this GitHub repository may help you understand an approach to using Senzing,
@@ -154,7 +153,7 @@ Configuration values specified by environment variable or command line parameter
 [Development]: docs/development.md
 [Docker]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/docker.md
 [DockerHub]: https://hub.docker.com/r/senzing/template-docker
-[Documentation issue]: https://github.com/senzing-garage/template-python/issues/new?template=documentation_request.md
+[Documentation issue]: https://github.com/senzing-garage/template-docker/issues/new?template=documentation_request.md
 [don't make me think]: https://github.com/senzing-garage/knowledge-base/blob/main/WHATIS/dont-make-me-think.md
 [Errors]: docs/errors.md
 [Examples of Docker]: docs/examples.md#examples-of-docker
