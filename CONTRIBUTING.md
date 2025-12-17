@@ -22,36 +22,26 @@ A license agreement is not needed for submitting feature request, bug reporting,
 
 ### Individual Contributor License Agreement
 
-In order to contribute to this repository, an
-[Individual Contributor License Agreement (ICLA)]
-must be completed, submitted and accepted.
+In order to contribute to this repository, an [Individual Contributor License Agreement (ICLA)] must be completed, submitted, and accepted.
 
 ### Corporate Contributor License Agreement
 
-If the contribution to this repository is on behalf of a company, a
-[Corporate Contributor License Agreement (CCLA)]
-must also be completed, submitted and accepted.
+If the contribution to this repository is on behalf of a company, a [Corporate Contributor License Agreement (CCLA)] must also be completed, submitted, and accepted.
 
 ### Project License Agreement
 
-The license agreement for this repository is stated in the
-[LICENSE] file.
+The license agreement for this repository is stated in the [LICENSE] file.
 
 ## Questions
 
 Please do not use the GitHub issue tracker to submit questions.
 
-TODO: Instead, use ???
-
-1. ??? Slack ???
-1. ??? stackoverflow.com ???
+Instead, email <support@senzing.com>.
 
 ## Feature Requests
 
 All feature requests are "GitHub issues".
-To request a feature, create a
-[GitHub issue]
-in this repository.
+To request a feature, create a [GitHub issue] in this repository.
 
 When creating an issue, there will be a choice to create a "Bug report" or a "Feature request".
 Choose "Feature request".
@@ -67,8 +57,7 @@ Choose "Bug report".
 
 ## Contributing code or documentation
 
-To contribute code or documentation to the repository, you must have
-[License Agreements] in place.
+To contribute code or documentation to the repository, you must have [License Agreements] in place.
 This needs to be complete before a [Pull Request] can be accepted.
 
 ### Setting up a development environment
@@ -104,11 +93,7 @@ cd ${GIT_REPOSITORY_DIR}
 
 ### Coding conventions
 
-TODO:
-
 ### Testing
-
-TODO:
 
 ### Pull Requests
 

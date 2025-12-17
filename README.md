@@ -1,7 +1,6 @@
 # template-docker
 
-If you are beginning your journey with [Senzing],
-please start with [Senzing Quick Start guides].
+If you are beginning your journey with [Senzing], please start with [Senzing Quick Start guides].
 
 You are in the [Senzing Garage] where projects are "tinkered" on.
 Although this GitHub repository may help you understand an approach to using Senzing,

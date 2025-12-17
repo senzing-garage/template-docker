@@ -1,4 +1,4 @@
-# Best practices
+# template-docker best practices
 
 ## README.md
 
