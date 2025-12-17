@@ -15,14 +15,12 @@
   - [jscpd configuration]
   - Example:
 
-      ```json
-      {
-      "ignore": [
-          "**/*.go,**/go-test*.yaml"
-      ],
+    ```json
+    {
+      "ignore": ["**/*.go,**/go-test*.yaml"],
       "threshold": 10
-      }
-      ```
+    }
+    ```
 
 ## .yaml-lint.yml
 
@@ -43,7 +41,7 @@
 
 - [zizmor.yaml]
 
-[.checkov.yaml]:  .checkov.yaml
+[.checkov.yaml]: .checkov.yaml
 [.jscpd.json]: .jscpd.json
 [.yaml-lint.yml]: .yaml-lint.yml
 [bearer configuration]: https://docs.bearer.com/reference/config/
