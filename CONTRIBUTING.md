@@ -37,6 +37,7 @@ The license agreement for this repository is stated in the [LICENSE] file.
 Please do not use the GitHub issue tracker to submit questions.
 
 Instead, email <support@senzing.com>.
+For open discussions, use GitHub's [Discussions].
 
 ## Feature Requests
 
@@ -110,10 +111,11 @@ Accepting pull requests will be at the discretion of Senzing, Inc. and the repos
 [Corporate Contributor License Agreement (CCLA)]: .github/senzing-corporate-contributor-license-agreement.pdf
 [Creating a pull request from a branch]: https://help.github.com/articles/creating-a-pull-request/
 [Creating a pull request from a fork]: https://help.github.com/articles/creating-a-pull-request-from-a-fork/
+[Discussions]: https://github.com/senzing-garage/template-repository/discussions
 [GitHub issue]: https://help.github.com/articles/creating-an-issue/
 [Individual Contributor License Agreement (ICLA)]: .github/senzing-individual-contributor-license-agreement.pdf
-[LICENSE]: LICENSE
 [License Agreements]: #license-agreements
+[LICENSE]: LICENSE
 [Pull Request]: #pull-requests
 [Reporting bugs]: #bug-reporting
 [Requesting features]: #feature-requests

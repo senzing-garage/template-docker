@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: docker-build-container-${{ github.head_ref || github.ref_name }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 permissions: {}
@@ -17,6 +17,7 @@ jobs:
     permissions:
       contents: read
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Get repository name
