@@ -28,5 +28,5 @@ This project adheres to [Semantic Versioning].
 - Thing 1
 
 [CommonMark]: https://commonmark.org/
-[Keep a Changelog]: https://keepachangelog.com/en/1.1.0/
-[Semantic Versioning]: https://semver.org/spec/v2.0.0.html
+[Keep a Changelog]: https://keepachangelog.com/
+[Semantic Versioning]: https://semver.org/
