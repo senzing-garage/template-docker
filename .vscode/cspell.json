@@ -23,6 +23,7 @@
     "gotestfmt",
     "healthcheck",
     "ICLA",
+    "kernelsam",
     "osarch",
     "osdetect",
     "OSTYPE",
@@ -40,5 +41,7 @@
     "venv",
     "zizmor"
   ],
-  "ignorePaths": [".git/**"]
+  "ignorePaths": [
+    ".git/**"
+  ]
 }
