@@ -41,7 +41,5 @@
     "venv",
     "zizmor"
   ],
-  "ignorePaths": [
-    ".git/**"
-  ]
+  "ignorePaths": [".git/**"]
 }
