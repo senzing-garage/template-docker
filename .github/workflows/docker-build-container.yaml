@@ -2,8 +2,7 @@ name: Docker build container
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 concurrency:
